@@ -2,4 +2,13 @@
 
 export(getCountry)
 export(ggRange)
+export(groupColor)
+export(groupColorInfo)
 export(loadPackages)
+export(makeRound)
+export(notify)
+export(notifyScript)
+export(sarahLoad)
+export(sarahSave)
+export(slug)
+export(wrapper)

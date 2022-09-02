@@ -2,7 +2,7 @@
 % Please edit documentation in R/loadPackages.R
 \name{loadPackages}
 \alias{loadPackages}
-\title{Load packages}
+\title{Install and load packages}
 \usage{
 loadPackages(pkg)
 }
@@ -13,7 +13,7 @@ loadPackages(pkg)
 Named logical indicating if packages were successfully loaded
 }
 \description{
-Load packages
+Checks if packages are installed, installs them if not, and loads them into the global environemtn
 }
 \examples{
 pkg = c("countrycode", "ggplot2")
