@@ -2,22 +2,27 @@
 % Please edit documentation in R/slug.R
 \name{slug}
 \alias{slug}
-\title{Converts string text to slug}
+\title{Converts a string of text to slug format text}
 \usage{
-slug(x, allow.numbers = TRUE)
+slug(x, lower = TRUE, numbers = TRUE, articles = FALSE)
 }
 \arguments{
-\item{x}{Character}
+\item{x}{A character string or vector}
 
-\item{allow.numbers}{TRUE/FALSE}
+\item{lower}{A logical indicating whether to make all characters lowercase}
+
+\item{numbers}{A logical indicating whether to include numbers in slug}
+
+\item{articles}{A logical indicating whether to include articles (a, an, the), coordinating conjunctions (and, but, for), or short prepositions (at, by, to, on, for)}
 }
 \value{
 Slugged text
 }
 \description{
-Converts string text to slug
+Converts a string of text to slug format text
 }
 \examples{
-x <- "slug this 123"
+x <- "The slug at 123"
 slug(x)
+slug(x, lower = FALSE, numbers = FALSE, articles = TRUE)
 }

@@ -2,9 +2,9 @@
 % Please edit documentation in R/sarahLoad.R
 \name{sarahLoad}
 \alias{sarahLoad}
-\title{Loads .rda objects from the project's output data folder}
+\title{Loads R objects from the project's output data folder}
 \usage{
-sarahLoad(object, folder = "03-output_data")
+sarahLoad(object, folder = "3 Output data")
 }
 \arguments{
 \item{object}{Name of object to load}
@@ -15,5 +15,5 @@ sarahLoad(object, folder = "03-output_data")
 Loads object into environment
 }
 \description{
-Loads .rda objects from the project's output data folder
+Loads R objects from the project's output data folder
 }

@@ -4,14 +4,14 @@
 \alias{sarahSave}
 \title{Saves objects to the project's output data folder}
 \usage{
-sarahSave(object, folder = "03-output_data", type = "rda")
+sarahSave(object, folder = "3 Output data", type = ".rda")
 }
 \arguments{
 \item{object}{Object to save}
 
-\item{folder}{Folder to save to}
+\item{folder}{Folder to save the object to}
 
-\item{type}{"rda" or "csv}
+\item{type}{Character string of file type; ".rda" or ".csv}
 }
 \value{
 Notification of saved object

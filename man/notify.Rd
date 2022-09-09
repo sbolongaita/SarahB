@@ -7,7 +7,7 @@
 notify(x)
 }
 \arguments{
-\item{x}{Text to notify}
+\item{x}{A string of text for the notification message}
 }
 \value{
 Printed notification text

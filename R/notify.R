@@ -1,6 +1,6 @@
 #' Print a notification in the console
 #'
-#' @param x Text to notify
+#' @param x A string of text for the notification message
 #'
 #' @return Printed notification text
 #' @export

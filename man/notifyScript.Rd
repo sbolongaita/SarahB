@@ -7,17 +7,18 @@
 notifyScript(prefix = "Done:", scriptName = NULL)
 }
 \arguments{
-\item{prefix}{"Done:"}
+\item{prefix}{A string of text to print before the script name; default is "Done:"}
 
-\item{scriptName}{Searches for "scriptName" in global environment, otherwise must be supplied}
+\item{scriptName}{A character string of length 1; if not supplied function will search for \code{scriptName} object in the global environment}
 }
 \value{
 Printed notification text
 }
 \description{
-Print a notification of a script's conclusion in the console
+This function is an extension of the \code{notify} function.
 }
 \examples{
-scriptName <- "script.R"
+scriptName <- "environment_script.R"
 notifyScript()
+notifyScript(scriptName = "specified_script.R")
 }

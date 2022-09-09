@@ -1,11 +1,11 @@
-#' Loads .rda objects from the project's output data folder
+#' Loads R objects from the project's output data folder
 #'
 #' @param object Name of object to load
 #' @param folder Output data folder
 #'
 #' @return Loads object into environment
 #' @export
-sarahLoad <- function(object, folder = "03-output_data"){
+sarahLoad <- function(object, folder = "3 Output data"){
 
   all_files <- list.files(path = folder, pattern = ".Rda", full.names = TRUE, recursive = TRUE)
 
