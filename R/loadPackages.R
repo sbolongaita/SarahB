@@ -1,21 +1,26 @@
 #' Install and load packages
 #'
-#' Checks if packages are installed, installs them if not, and loads them into the global environemtn
+#' This function checks if desired packages are already installed, installs them if not, and then loads them into the global environment.
 #'
-#' @param pkg A vector of packages to be loaded
+#' @param packages A character vector of the names of packages to be loaded
 #'
-#' @return Named logical indicating if packages were successfully loaded
+#' @return A named logical indicating if packages were successfully loaded
 #' @export
 #'
 #' @examples
-#' pkg = c("countrycode", "ggplot2")
-#' loadPackages(pkg)
-loadPackages <- function(pkg){
-  new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
-  if (length(new.pkg))
-    install.packages(new.pkg,
-                     dependencies = TRUE,
-                     repos = c("http://rstudio.org/_packages",
-                               "http://cran.rstudio.com"))
-  sapply(pkg, require, character.only = TRUE)
+#' packages = c("countrycode", "ggplot2", "plyr")
+#' loadPackages(packages)
+loadPackages <- function(packages){
+
+  if(any(c("dplyr", "plyr") %in% packages)){
+    a <- unique(c("plyr", packages[!(packages %in% c("dplyr", "plyr"))], "dplyr"))
+  }else{
+    a <- packages
+  }
+
+  b <- a[!(a %in% installed.packages()[, "Package"])]
+  if(length(b))
+    install.packages(b, dependencies = TRUE,
+                     repos = c("http://rstudio.org/_packages", "http://cran.rstudio.com"))
+  sapply(packages, require, character.only = TRUE)
 }

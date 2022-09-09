@@ -4,18 +4,18 @@
 \alias{loadPackages}
 \title{Install and load packages}
 \usage{
-loadPackages(pkg)
+loadPackages(packages)
 }
 \arguments{
-\item{pkg}{A vector of packages to be loaded}
+\item{packages}{A character vector of the names of packages to be loaded}
 }
 \value{
-Named logical indicating if packages were successfully loaded
+A named logical indicating if packages were successfully loaded
 }
 \description{
-Checks if packages are installed, installs them if not, and loads them into the global environemtn
+This function checks if desired packages are already installed, installs them if not, and then loads them into the global environment.
 }
 \examples{
-pkg = c("countrycode", "ggplot2")
-loadPackages(pkg)
+packages = c("countrycode", "ggplot2", "plyr")
+loadPackages(packages)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/groupColor.R
 \name{groupColor}
 \alias{groupColor}
-\title{Title}
+\title{Shades of colors by groups}
 \usage{
 groupColor(
   n,
@@ -13,19 +13,25 @@ groupColor(
 )
 }
 \arguments{
-\item{n}{Number of shades needed by group}
+\item{n}{Number of shades needed by group (i.e., the number of items in each group)}
 
-\item{names}{Names of shades}
+\item{names}{Names of shades (i.e., names of items)}
 
 \item{palettes}{ggsci material design color palettes}
 
-\item{color.and.fill}{Logical indicator of whether to both fill colors and darkened colors (for borders)}
+\item{color.and.fill}{A logical indicator denoting whether to return shades for both \code{fill} and \code{color} parameters (color shades are produced by darkening fill shades)}
 
-\item{show}{Logical indicators of whether to show output colors}
+\item{show}{A logical indicator of whether to show output colors}
 }
 \value{
-Vector of colors
+A vector or list (if \code{color.and.fill = TRUE}) of color shades, with names if supplied
 }
 \description{
-Title
+This function returns shades of colors by group, wherein items in Group A will have shades of red, items in Group B will have shades of yellow, and so forth.
+}
+\examples{
+n <- c(2, 1, 2)
+names <- c("roses", "apples", "oranges", "plants", "zucchini")
+groupColor(n = n, names = names, show = TRUE)
+groupColor(n = n, names = names, color.and.fill = TRUE, show = TRUE)
 }

@@ -2,23 +2,27 @@
 % Please edit documentation in R/getCountry.R
 \name{getCountry}
 \alias{getCountry}
-\title{Get country name from ISO 3-character code}
+\title{Standardized country names from English country names or ISO 3-character codes}
 \usage{
-getCountry(iso3, shortest = FALSE)
+getCountry(x, iso3 = TRUE, shortest = FALSE)
 }
 \arguments{
-\item{iso3}{A vector of ISO 3-character codes}
+\item{x}{A character vector of ISO 3-character codes}
 
-\item{shortest}{A logical indicating whether the shortest possible name should be returned (i.e., US = United States)}
+\item{shortest}{A logical indicating whether the shortest possible name should be returned (e.g., US = United States)}
 }
 \value{
-A vector of country names
+A vector of country names corresponding to the input ISO 3-character codes
 }
 \description{
-Get country name from ISO 3-character code
+This function expands the \code{countryname} and \code{countrycode} function from the \href{https://cran.r-project.org/web/packages/countrycode/countrycode.pdf}{countrycode} package. It further modifies the ISO English short name to more common representations to country names (e.g., "Congo (the Democratic Republic of the)" becomes "Democratic Republic of the Congo").
 }
 \examples{
-iso3 <- c("CHN", "SOM", "USA")
-getCountry(iso3)
-getCountry(iso3, shortest = TRUE)
+x <- c("CHN", "COD", "KOR", "USA", "XKX")
+getCountry(x)
+getCountry(x, shortest = TRUE)
+
+x <- c("China", "Dem. Rep. of Congo", "Korea", "United States of America", "Kosovo")
+getCountry(x, iso3 = FALSE)
+getCountry(x, iso3 = FALSE, shortest = TRUE)
 }

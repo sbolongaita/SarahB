@@ -2,22 +2,23 @@
 % Please edit documentation in R/makeRound.R
 \name{makeRound}
 \alias{makeRound}
-\title{Formatted round numbers}
+\title{Format and round numbers}
 \usage{
-makeRound(x, digits = 0)
+makeRound(x, accuracy = 1)
 }
 \arguments{
-\item{x}{Numeric}
+\item{x}{A numeric vector}
 
-\item{digits}{Number of digits to round to}
+\item{accuracy}{The number to round to (e.g., 0.05, 5)}
 }
 \value{
-Character
+A character vector of formatted numbers
 }
 \description{
-Formatted round numbers
+This function rounds and formats numbers. It is helpful when producing values that will be included as labels in graphs or values in display tables.
 }
 \examples{
-x <- sample(seq(0, 10000), 10)
-makeRound(x)
+x <- runif(10, min = 0, max = 1000)
+makeRound(x, accuracy = 0.01)
+makeRound(x, accuracy = 10)
 }

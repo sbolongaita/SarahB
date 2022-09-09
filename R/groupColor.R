@@ -1,15 +1,25 @@
+library(colorspace)
 library(ggsci)
 library(grDevices)
-#' Title
+library(scales)
+#' Shades of colors by groups
 #'
-#' @param n Number of shades needed by group
-#' @param names Names of shades
+#' This function returns shades of colors by group, wherein items in Group A will have shades of red, items in Group B will have shades of yellow, and so forth.
+#'
+#' @param n Number of shades needed by group (i.e., the number of items in each group)
+#' @param names Names of shades (i.e., names of items)
 #' @param palettes ggsci material design color palettes
-#' @param color.and.fill Logical indicator of whether to both fill colors and darkened colors (for borders)
-#' @param show Logical indicators of whether to show output colors
+#' @param color.and.fill A logical indicator denoting whether to return shades for both `fill` and `color` parameters (color shades are produced by darkening fill shades)
+#' @param show A logical indicator of whether to show output colors
 #'
-#' @return Vector of colors
+#' @return A vector or list (if `color.and.fill = TRUE`) of color shades, with names if supplied
 #' @export
+#'
+#' @examples
+#' n <- c(2, 1, 2)
+#' names <- c("roses", "apples", "oranges", "plants", "zucchini")
+#' groupColor(n = n, names = names, show = TRUE)
+#' groupColor(n = n, names = names, color.and.fill = TRUE, show = TRUE)
 groupColor <- function(n, names = NULL, palettes = NULL, color.and.fill = FALSE, show = FALSE){
 
   if(is.null(palettes)){
@@ -38,13 +48,13 @@ groupColor <- function(n, names = NULL, palettes = NULL, color.and.fill = FALSE,
       n_darker <- n[i] - n_lighter
       darken <- n_darker / (n_lighter * 1.5)
       darker <- grDevices::colorRampPalette(c(ggsci::pal_material("light-green")(9)[9],
-                                              darken(ggsci::pal_material("light-green")(9)[9], darken)))(n_darker)
+                                              colorspace::darken(ggsci::pal_material("light-green")(9)[9], darken)))(n_darker)
       sample <- c(lighter, darker)
       fills <- append(fills, sample)
     }
   }
 
-  colors <- darken(fills, 0.3)
+  colors <- colorspace::darken(fills, 0.3)
 
   if(!is.null(names)){
     if(sum(n) == length(names)){
@@ -56,10 +66,10 @@ groupColor <- function(n, names = NULL, palettes = NULL, color.and.fill = FALSE,
   if(show){
     if(color.and.fill){
       par(mfrow = c(1,2))
-      show_col(fills, borders = NA); show_col(colors, borders = NA)
+      scales::show_col(fills, borders = NA); scales::show_col(colors, borders = NA)
     }else{
       par(mfrow = c(1,1))
-      show_col(fills, borders = NA)
+      scales::show_col(fills, borders = NA)
     }
   }
 

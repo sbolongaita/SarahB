@@ -2,25 +2,29 @@
 % Please edit documentation in R/ggRange.R
 \name{ggRange}
 \alias{ggRange}
-\title{Range for continuous axes}
+\title{Extract the limits for plotting continuous axes}
 \usage{
 ggRange(x, accuracy = 1, log = FALSE)
 }
 \arguments{
-\item{x}{A numeric vector.}
+\item{x}{A numeric vector}
 
-\item{accuracy}{The number number to round to (e.g., '5', '0.1').}
+\item{accuracy}{The number to round to (e.g., 0.05, 5)}
 
-\item{log}{A logical indicating if the range should be for a log scale. Accuracy parameter is ignored if TRUE.}
+\item{log}{A logical indicating if the range should be for a log scale (accuracy parameter is ignored if \code{TRUE})}
 }
 \value{
-A vector with length two. The first element is the floored minimum and the second element is the ceiling-ed maximum.
+A vector with length two; the first element is the floored minimum and the second element is the ceiling-ed maximum
 }
 \description{
-Range for continuous axes
+This function quickly extracts the floored minimum and the ceiling-ed maximum of a numeric vector and rounds those values to a user-defined accuracy (e.g., 0.05, 5). It is particularlly useful when setting the limits of continuous axes when plotting.
 }
 \examples{
 x <- runif(10)
-ggRange(x, accuracy = 0.01)
-ggRange(x, accuracy = 0.01, log = TRUE)
+ggRange(x, accuracy = 0.05)
+ggRange(x, accuracy = 0.05, log = TRUE)
+
+x <- runif(10, min = 0, max = 100)
+ggRange(x, accuracy = 5)
+ggRange(x, accuracy = 5, log = TRUE)
 }

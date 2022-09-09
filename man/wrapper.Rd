@@ -2,18 +2,22 @@
 % Please edit documentation in R/wrapper.R
 \name{wrapper}
 \alias{wrapper}
-\title{Wrap character strings to format paragraphs}
+\title{Wrap long character strings}
 \usage{
-wrapper(x, ...)
+wrapper(x, width)
 }
 \arguments{
-\item{x}{Vector}
+\item{x}{A character vector}
 
-\item{...}{}
+\item{width}{A positive integer giving the maximum width for wrapping lines}
 }
 \value{
-Character vector
+A character vector
 }
 \description{
-Each character string in the input is first split into paragraphs (or lines containing whitespace only). The paragraphs are then formatted by breaking lines at word boundaries. The target columns for wrapping lines and the indentation of the first and all subsequent lines of a paragraph can be controlled independently.
+Strings are formatted by inserting line breaks at word boundaries, such that all lines are less than the user's maximum desired width.
+}
+\examples{
+x <- c("This is a super super super super duper long string", "This is also a super super super super duper long string")
+wrapper(x, width = 20)
 }

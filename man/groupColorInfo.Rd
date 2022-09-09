@@ -2,7 +2,7 @@
 % Please edit documentation in R/groupColorInfo.R
 \name{groupColorInfo}
 \alias{groupColorInfo}
-\title{Color shades needed by group}
+\title{Extract \code{groupColor} parameters from data frame}
 \usage{
 groupColorInfo(df, group, subgroup)
 }
@@ -14,12 +14,15 @@ groupColorInfo(df, group, subgroup)
 \item{subgroup}{Subgroup variable for shades (e.g., burgundy, cherry, scarlett)}
 }
 \value{
-List of two with the number of unique color shades needed by group with subgroup labels
+List of two with the number of unique color shades needed by group and the subgroup labels for each shade
 }
 \description{
-For use with groupColorFunct
+This is a helper function that allows for easy extraction of the \code{n} and \code{names} parameters for the \code{groupColor} function from a data frame.
 }
 \examples{
-cars <- cars \%>\% dplyr::mutate(across(everything(), ~plyr::round_any(., f = floor, accuracy = 10)))
-groupColorInfo(cars, "speed", "dist")
+group = c("Red things", "Red things", "Yellow things", "Green things", "Green things")
+subgroup = c("roses", "apples", "oranges", "plants", "zucchini")
+data = c(5, 31, 19, 93, 29)
+df <- data.frame(group, subgroup, data)
+groupColorInfo(df = df, group = "group", subgroup = "subgroup")
 }
