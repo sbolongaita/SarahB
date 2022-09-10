@@ -1,3 +1,4 @@
+usethis::use_package("utils")
 #' Install and load packages
 #'
 #' This function checks if desired packages are already installed, installs them if not, and then loads them into the global environment.
@@ -18,9 +19,9 @@ loadPackages <- function(packages){
     a <- packages
   }
 
-  b <- a[!(a %in% installed.packages()[, "Package"])]
+  b <- a[!(a %in% utils::installed.packages()[, "Package"])]
   if(length(b))
-    install.packages(b, dependencies = TRUE,
-                     repos = c("http://rstudio.org/_packages", "http://cran.rstudio.com"))
+    utils::install.packages(b, dependencies = TRUE,
+                            repos = c("http://rstudio.org/_packages", "http://cran.rstudio.com"))
   sapply(packages, require, character.only = TRUE)
 }

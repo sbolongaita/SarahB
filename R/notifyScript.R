@@ -1,3 +1,4 @@
+usethis::use_package("methods")
 #' Print a notification of a script's conclusion in the console
 #'
 #' This function is an extension of the `notify` function.
@@ -13,7 +14,7 @@
 #' notifyScript()
 #' notifyScript(scriptName = "specified_script.R")
 notifyScript <- function(prefix = "Done:", scriptName = NULL){
-  if(hasArg(scriptName)){
+  if(methods::hasArg(scriptName)){
     cat(paste(prefix, paste0(scriptName, "\n")))
   }else{
     if(exists("scriptName", envir = globalenv())){

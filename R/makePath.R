@@ -1,3 +1,5 @@
+usethis::use_package("stringr")
+usethis::use_package("methods")
 #' Make file path from folder and filename
 #'
 #' @param folder A string of text denoting the folder to save the file to
@@ -11,16 +13,16 @@
 #' makePath(folder = "output-data", filename = "file.Rda")
 #' makePath(folder = "output-data", filename = "file", extension = ".Rda")
 makePath <- function(folder, filename, extension = NULL){
-  guess <- str_extract(filename, pattern = "\\..*$")
+  guess <- stringr::str_extract(filename, pattern = "\\..*$")
   guess <- ifelse(nchar(guess) > 5, NA, guess)
   extensions <- c(".R", ".Rd", ".Rda", ".csv", ".xlsx", ".xls", ".dta")
   known <- any(sapply(extensions, grepl, filename, ignore.case = TRUE))
   if(is.na(guess)){
-    if(!hasArg(extension)){
+    if(!methods::hasArg(extension)){
       warning("No file extension detected in filename and 'extension' parameter is NULL")
     }
   }else{
-    if(hasArg(extension)){
+    if(methods::hasArg(extension)){
       warning("File extension detected in filename and 'extension' parameter is not NULL")
     }else{
       if(!known){
@@ -28,7 +30,7 @@ makePath <- function(folder, filename, extension = NULL){
       }
     }
   }
-  if(hasArg(extension)){
+  if(methods::hasArg(extension)){
     path <- paste(folder, paste0(filename, extension), sep = "/")
   }else{
     path <- paste(folder, filename, sep = "/")

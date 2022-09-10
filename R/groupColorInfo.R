@@ -1,5 +1,5 @@
-library(dplyr)
-library(stringr)
+usethis::use_package("dplyr")
+usethis::use_package("stringr")
 #' Extract `groupColor` parameters from data frame
 #'
 #' This is a helper function that allows for easy extraction of the `n` and `names` parameters for the `groupColor` function from a data frame.
@@ -9,6 +9,7 @@ library(stringr)
 #' @param subgroup Subgroup variable for shades (e.g., burgundy, cherry, scarlett)
 #'
 #' @return List of two with the number of unique color shades needed by group and the subgroup labels for each shade
+#' @importFrom dplyr %>%
 #' @export
 #'
 #' @examples
@@ -21,8 +22,8 @@ groupColorInfo <- function(df, group, subgroup){
   out <- df %>%
     dplyr::select(!!as.name(group), !!as.name(subgroup)) %>% unique() %>%
     dplyr::arrange(!!as.name(group), !!as.name(subgroup)) %>%
-    dplyr::group_by(across(c(!!as.name(group)))) %>%
-    dplyr::summarize(n = n(),
+    dplyr::group_by(dplyr::across(c(!!as.name(group)))) %>%
+    dplyr::summarize(n = dplyr::n(),
                      names = paste(!!as.name(subgroup), collapse = "; "))
   n <- out$n
   names <- unlist(stringr::str_split(paste(out$names, collapse = "; "), "; "))

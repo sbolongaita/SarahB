@@ -1,3 +1,4 @@
+usethis::use_package("plyr")
 #' Format and round numbers
 #'
 #' This function rounds and formats numbers. It is helpful when producing values that will be included as labels in graphs or values in display tables.
@@ -13,7 +14,7 @@
 #' makeRound(x, accuracy = 0.01)
 #' makeRound(x, accuracy = 10)
 makeRound <- function(x, accuracy = 1){
-  a <- round_any(x, accuracy = accuracy)
+  a <- plyr::round_any(x, accuracy = accuracy)
   if(accuracy < 1){
     nsmall = nchar(gsub("*\\..", "", format(accuracy, scientific = FALSE)))
   }else{

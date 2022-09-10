@@ -10,7 +10,23 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1.9000
 Imports: 
-    plyr
+    colorspace,
+    countrycode,
+    dplyr,
+    extrafont,
+    ggplot2,
+    ggsci,
+    ggthemes,
+    graphics,
+    grDevices,
+    methods,
+    plyr,
+    remotes,
+    rlang,
+    scales,
+    stats,
+    stringr,
+    utils
 Depends: 
     R (>= 2.10)
 LazyData: true

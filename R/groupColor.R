@@ -1,7 +1,9 @@
-library(colorspace)
-library(ggsci)
-library(grDevices)
-library(scales)
+usethis::use_package("colorspace")
+usethis::use_package("ggsci")
+usethis::use_package("graphics")
+usethis::use_package("grDevices")
+usethis::use_package("scales")
+usethis::use_package("stats")
 #' Shades of colors by groups
 #'
 #' This function returns shades of colors by group, wherein items in Group A will have shades of red, items in Group B will have shades of yellow, and so forth.
@@ -58,17 +60,17 @@ groupColor <- function(n, names = NULL, palettes = NULL, color.and.fill = FALSE,
 
   if(!is.null(names)){
     if(sum(n) == length(names)){
-      fills <- setNames(fills, names)
-      colors <- setNames(colors, names)
+      fills <- stats::setNames(fills, names)
+      colors <- stats::setNames(colors, names)
     }else{stop("Number of colors and number of names do not match")}
   }
 
   if(show){
     if(color.and.fill){
-      par(mfrow = c(1,2))
+      graphics::par(mfrow = c(1,2))
       scales::show_col(fills, borders = NA); scales::show_col(colors, borders = NA)
     }else{
-      par(mfrow = c(1,1))
+      graphics::par(mfrow = c(1,1))
       scales::show_col(fills, borders = NA)
     }
   }

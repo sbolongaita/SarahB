@@ -18,6 +18,7 @@ A character vector
 Strings are formatted by inserting line breaks at word boundaries, such that all lines are less than the user's maximum desired width.
 }
 \examples{
-x <- c("This is a super super super super duper long string", "This is also a super super super super duper long string")
+x <- c("This is a super super super super duper long string",
+"This is also a super super super super duper long string")
 wrapper(x, width = 20)
 }

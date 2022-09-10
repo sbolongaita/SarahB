@@ -1,3 +1,4 @@
+usethis::use_package("utils")
 #' Saves objects to the project's output data folder
 #'
 #' @param object Object to save
@@ -20,7 +21,7 @@ sarahSave <- function(object, folder = "3 Output data", type = ".rda"){
 
     if(".csv" %in% type){
       filepath <- paste0(paste(folder, filename, sep = "/"), ".csv")
-      write.csv(x = get(filename), file = filepath, row.names = FALSE, na = "")
+      utils::write.csv(x = get(filename), file = filepath, row.names = FALSE, na = "")
       cat(paste0("'", filepath, "' saved\n"))
     }
   }

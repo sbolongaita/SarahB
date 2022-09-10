@@ -9,7 +9,8 @@
 #' @export
 #'
 #' @examples
-#' x <- c("This is a super super super super duper long string", "This is also a super super super super duper long string")
+#' x <- c("This is a super super super super duper long string",
+#' "This is also a super super super super duper long string")
 #' wrapper(x, width = 20)
 wrapper <- function(x, width) {
   out <- character()

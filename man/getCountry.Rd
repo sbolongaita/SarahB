@@ -7,7 +7,9 @@
 getCountry(x, iso3 = TRUE, shortest = FALSE)
 }
 \arguments{
-\item{x}{A character vector of ISO 3-character codes}
+\item{x}{A character vector of English country names or ISO 3-character codes}
+
+\item{iso3}{A logical indicating whether \code{x} is a vector of ISO 3-character codes}
 
 \item{shortest}{A logical indicating whether the shortest possible name should be returned (e.g., US = United States)}
 }

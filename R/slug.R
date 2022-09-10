@@ -1,4 +1,4 @@
-library(stringr)
+usethis::use_package("stringr")
 #' Converts a string of text to slug format text
 #'
 #' @param x A character string or vector

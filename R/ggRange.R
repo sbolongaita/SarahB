@@ -1,5 +1,4 @@
-library("plyr")
-library("dplyr")
+usethis::use_package("plyr")
 #' Extract the limits for plotting continuous axes
 #'
 #' This function quickly extracts the floored minimum and the ceiling-ed maximum of a numeric vector and rounds those values to a user-defined accuracy (e.g., 0.05, 5). It is particularlly useful when setting the limits of continuous axes when plotting.

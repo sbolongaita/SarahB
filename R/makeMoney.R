@@ -1,3 +1,4 @@
+usethis::use_package("plyr")
 #' Format currency values
 #'
 #' This function formats currency values. It is helpful when producing values that will be included as labels in graphs or values in display tables.
@@ -16,10 +17,10 @@
 #' makeMoney(x, currency = "", cents = FALSE)
 makeMoney <- function(x, currency = "$", cents = FALSE){
   if(!cents){
-    a <- round_any(x, accuracy = 1)
+    a <- plyr::round_any(x, accuracy = 1)
     nsmall = 0
   }else{
-    a <- round_any(x, accuracy = 0.01)
+    a <- plyr::round_any(x, accuracy = 0.01)
     nsmall = 2
   }
   z <- paste0(currency, format(a, trim = TRUE, nsmall = nsmall, big.mark = ","))

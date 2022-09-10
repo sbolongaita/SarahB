@@ -10,10 +10,10 @@ A data frame with 217 rows and 7 variables:
 \item{iso3}{ISO 3-character code}
 \item{country}{Country name per World Bank formatting}
 \item{region}{World Bank region}
-\item{region.abbreviation}{World Bank region abbreviation}
+\item{region.abb}{World Bank region abbreviation}
 \item{year}{Year of data}
-\item{income.group}{World Bank income group}
-\item{lending.category}{World Bank lending category}
+\item{income}{World Bank income group}
+\item{lending}{World Bank lending category}
 }
 }
 \source{

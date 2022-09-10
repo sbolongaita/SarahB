@@ -7,10 +7,10 @@
 #'   \item{iso3}{ISO 3-character code}
 #'   \item{country}{Country name per World Bank formatting}
 #'   \item{region}{World Bank region}
-#'   \item{region.abbreviation}{World Bank region abbreviation}
+#'   \item{region.abb}{World Bank region abbreviation}
 #'   \item{year}{Year of data}
-#'   \item{income.group}{World Bank income group}
-#'   \item{lending.category}{World Bank lending category}
+#'   \item{income}{World Bank income group}
+#'   \item{lending}{World Bank lending category}
 #' }
 #' @source \url{https://datatopics.worldbank.org/world-development-indicators/the-world-by-income-and-region.html}
 "wb.classifications"
