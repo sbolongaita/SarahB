@@ -1,10 +1,10 @@
 Package: SarahB
-Title: What the Package Does (One Line, Title Case)
+Title: Support Functions for Code Written by Sarah Bolongaita
 Version: 0.0.0.9000
 Authors@R: 
     person("Sarah", "Bolongaita", , "sabolongaita@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           comment = c(ORCID = "0000-0003-0886-0454"))
+Description: The SarahB package contains functions and ggplot themes that support code written by me, Sarah Bolongaita. This package was developed to promote efficiency in my workflow.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
