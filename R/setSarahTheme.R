@@ -30,13 +30,13 @@ setSarahTheme <- function(theme, example = TRUE){
   theme <- tolower(theme)
 
   # Loading themes
-  data("barlow", envir = environment())
+  data("barlow", package = "SarahB", envir = environment())
 
   font <- get(theme)$text$family
 
   # Importing and loading fonts
-  suppressMessages(extrafont::ttf_import(file.path(system.file("extdata/fonts", package = "SarahB"))))
-  extrafont::loadfonts(device = "pdf", quiet = FALSE)
+  # suppressMessages(extrafont::ttf_import(file.path(system.file("extdata/fonts", package = "SarahB"))))
+  # extrafont::loadfonts(device = "pdf", quiet = FALSE)
 
   ggplot2::theme_set(get(theme))
 
