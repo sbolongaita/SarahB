@@ -8,6 +8,7 @@ usethis::use_package("extrafont")
 #' @param folder A character string indicating the folder where the PDF should be saved
 #' @param width Width of each panel; default = 10
 #' @param height Height of each panel; default = 10
+#' @param multipage A logical indicating if `x` is a list of plots to be saved as a multi-page PDF
 #'
 #' @export
 #'
@@ -21,10 +22,10 @@ usethis::use_package("extrafont")
 #' ggplot2::scale_y_continuous("Y variable") +
 #' ggplot2::labs(title = "Title", subtitle = "Subtitle") +
 #' ggthemes::scale_color_colorblind("Z variable")
-#' saveGGplot(figure, name = "figure.pdf")
+#' \dontrun{saveGGplot(figure, name = "figure.pdf")}
 #' figures <- list("figure 1" = figure,
 #' "figure 2" = figure)
-#' saveGGplot(figures, name = "figures.pdf", multipage = TRUE)
+#' \dontrun{saveGGplot(figures, name = "figures.pdf", multipage = TRUE)}
 saveGGplot <- function(x, name, folder = NULL, width = 6, height = 4, multipage = FALSE){
 
   if(is.null(folder)){

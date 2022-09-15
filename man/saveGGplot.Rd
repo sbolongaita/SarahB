@@ -16,6 +16,8 @@ saveGGplot(x, name, folder = NULL, width = 6, height = 4, multipage = FALSE)
 \item{width}{Width of each panel; default = 10}
 
 \item{height}{Height of each panel; default = 10}
+
+\item{multipage}{A logical indicating if \code{x} is a list of plots to be saved as a multi-page PDF}
 }
 \description{
 Save ggplot(s) as a PDF
@@ -30,8 +32,8 @@ ggplot2::scale_x_continuous("X variable") +
 ggplot2::scale_y_continuous("Y variable") +
 ggplot2::labs(title = "Title", subtitle = "Subtitle") +
 ggthemes::scale_color_colorblind("Z variable")
-saveGGplot(figure, name = "figure.pdf")
+\dontrun{saveGGplot(figure, name = "figure.pdf")}
 figures <- list("figure 1" = figure,
 "figure 2" = figure)
-saveGGplot(figures, name = "figures.pdf", multipage = TRUE)
+\dontrun{saveGGplot(figures, name = "figures.pdf", multipage = TRUE)}
 }
