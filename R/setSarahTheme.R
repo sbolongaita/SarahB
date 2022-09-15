@@ -38,7 +38,7 @@ setSarahTheme <- function(theme, example = TRUE){
   # suppressMessages(extrafont::ttf_import(file.path(system.file("extdata/fonts", package = "SarahB"))))
   # extrafont::loadfonts(device = "pdf", quiet = FALSE)
 
-  ggplot2::theme_set(get(theme))
+  ggplot2::theme_set(theme)
 
   if(example){
     data <- data.frame(x = stats::runif(100, min = 0, max = 100),
