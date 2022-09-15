@@ -1,9 +1,10 @@
+usethis::use_package("extrafont")
 usethis::use_package("ggplot2")
 usethis::use_package("ggthemes")
 usethis::use_package("remotes")
 usethis::use_package("rlang")
 usethis::use_package("stats")
-usethis::use_package("extrafont")
+usethis::use_package("remotes")
 #' Set the ggplot theme using a SarahB theme
 #'
 #' Most SarahB package themes require Google fonts. If the theme requires a Google font, the Google font name will be the SarahB ggplot theme name (i.e., the 'Barlow' theme requires the 'Barlow' Google font). Google fonts are freely available from (https://fonts.google.com/).
@@ -22,8 +23,10 @@ usethis::use_package("extrafont")
 setSarahTheme <- function(theme, example = TRUE){
 
   if(utils::packageVersion("Rttf2pt1") != "1.3.8"){
+    utils::remove.packages("Rttf2pt1")
     remotes::install_version("Rttf2pt1", version = "1.3.8")
   }
+
   theme <- tolower(theme)
 
   # Loading themes

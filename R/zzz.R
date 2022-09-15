@@ -1,4 +1,5 @@
 usethis::use_package("extrafont")
+usethis::use_package("utils")
 .onLoad <- function(libname, pkgname) {
 
   if (Sys.info()[1] == "Darwin") {
